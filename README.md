@@ -11,7 +11,7 @@ Based on XMLReader. Suitable for large files.
 
 ## Install
 
-Add the `"sitebill/ymlparser": "^3.2"` package to your `require` section in the `composer.json` file
+Add the `"sitebill/ymlparser": "^1.0"` package to your `require` section in the `composer.json` file
 
 or
 
