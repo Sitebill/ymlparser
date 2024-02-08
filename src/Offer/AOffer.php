@@ -68,6 +68,13 @@ abstract class AOffer
      */
     protected $pictures = [];
 
+    protected $morephoto = [];
+
+    /**
+     * @var string
+     */
+    protected $color;
+
     /**
      * @var string
      */
@@ -144,7 +151,7 @@ abstract class AOffer
             //subNodes
             'price', 'oldprice', 'vat', 'currencyId', 'categoryId', 'picture', 'delivery',
             'pickup', 'store', 'outlets', 'description', 'sales_notes', 'country_of_origin',
-            'barcode', 'cpa', 'param', 'expiry', 'weight', 'dimensions'
+            'barcode', 'cpa', 'param', 'expiry', 'weight', 'dimensions', 'morephoto', 'цвет'
         ];
     }
 
@@ -289,6 +296,14 @@ abstract class AOffer
             }
         } elseif ($attrNode['name'] === 'picture') {
             $this->addPicture($attrNode['value']);
+        } elseif ($attrNode['name'] === 'morephoto') {
+            if ( !empty($attrNode['value']) ) {
+                $this->addMorephone($attrNode['value']);
+            }
+        } elseif ($attrNode['name'] === 'цвет') {
+            if ( !empty($attrNode['value']) ) {
+                $this->setColor($attrNode['value']);
+            }
         } elseif ($attrNode['name'] === 'barcode') {
             $this->addBarcode($attrNode['value']);
         } elseif ($attrNode['name'] === 'param') {
@@ -525,6 +540,18 @@ abstract class AOffer
     public function addPicture($value)
     {
         $this->pictures[] = $value;
+
+        return $this;
+    }
+    public function setColor($value)
+    {
+        $this->color = $value;
+        return $this;
+    }
+
+    public function addMorephone($value)
+    {
+        $this->morephoto[] = $value;
 
         return $this;
     }
