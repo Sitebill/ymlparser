@@ -75,6 +75,9 @@ abstract class AOffer
      */
     protected $color;
 
+    protected $zCategory;
+    protected $zVid;
+    protected $zTip;
     /**
      * @var string
      */
@@ -303,6 +306,18 @@ abstract class AOffer
         } elseif ($attrNode['name'] === 'цвет') {
             if ( !empty($attrNode['value']) ) {
                 $this->setColor($attrNode['value']);
+            }
+        } elseif ($attrNode['name'] === 'категория') {
+            if ( !empty($attrNode['value']) ) {
+                $this->setZCategory($attrNode['value']);
+            }
+        } elseif ($attrNode['name'] === 'вид') {
+            if ( !empty($attrNode['value']) ) {
+                $this->setZVid($attrNode['value']);
+            }
+        } elseif ($attrNode['name'] === 'тип') {
+            if ( !empty($attrNode['value']) ) {
+                $this->setZTip($attrNode['value']);
             }
         } elseif ($attrNode['name'] === 'barcode') {
             $this->addBarcode($attrNode['value']);
@@ -840,5 +855,53 @@ abstract class AOffer
         $this->params[] = $value;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZCategory()
+    {
+        return $this->zCategory;
+    }
+
+    /**
+     * @param mixed $zCategory
+     */
+    public function setZCategory($zCategory): void
+    {
+        $this->zCategory = $zCategory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZVid()
+    {
+        return $this->zVid;
+    }
+
+    /**
+     * @param mixed $zVid
+     */
+    public function setZVid($zVid): void
+    {
+        $this->zVid = $zVid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZTip()
+    {
+        return $this->zTip;
+    }
+
+    /**
+     * @param mixed $zTip
+     */
+    public function setZTip($zTip): void
+    {
+        $this->zTip = $zTip;
     }
 }
